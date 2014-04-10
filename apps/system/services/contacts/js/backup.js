@@ -109,9 +109,9 @@ BackupService = {
                       );
                       break;
                     default:
-                      // TODO: need to retry provisioning
-                      // TODO: only attempt provisioning 5 times
                       console.error("Non-200 response from provider: " + xhr.status);
+                      self.provision().then(resolve, reject); // retry provisioning
+                      // TODO: only attempt provisioning 5 times
                       break;
                   }
                 };
