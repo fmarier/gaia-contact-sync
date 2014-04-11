@@ -217,7 +217,7 @@ BackupService = {
         function reqListener() {
           console.log('contact pushed: ' + oReq.status + ' ' + oReq.statusText);
           // TODO: check for 401s and re-do provisioning in that case
-          if (oReq.status !== 204) { // TODO: support other 2xx status codes?
+          if (oReq.status !== 204 && oReq.status !== 201) { // TODO: support other 2xx status codes?
             console.log("Contact upload failed, will retry.");
             self.upload(contactId, vcard);
             // TODO: put a limit of 5 attempts on pushing a single contact
